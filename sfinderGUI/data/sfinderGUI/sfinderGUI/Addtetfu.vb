@@ -50,6 +50,8 @@
         Dim cr() As String = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "+", "/"}
         tetfu = tetfu.Replace("https://fumen.zui.jp/?", "")
         tetfu = tetfu.Replace("v115@", "")
+        tetfu = tetfu.Replace("m115@", "")
+        tetfu = tetfu.Replace("i115@", "")
         tetfu = tetfu.Replace("?", "")
         Dim fnum = 0
         Dim lineclear(23) As Short
@@ -148,22 +150,36 @@
                 Next
             End If
             If page - 1 = p And Not clear Then
-                For Each l In clearline
-                Next
+                Dim conv As New ArrayList
                 Dim num = 0
-                Dim acc = 0
-                Dim acc0 = 0
+                Dim num1 = 0
+                Dim elem = ""
+                While True
+                    If clearline.Count < num + 1 Then
+                        Exit While
+                    End If
+                    If clearline(num) = -1 Then
+                        conv.Insert(num1, -1)
+                        num += 1
+                        num1 = 0
+                    Else
+                        For i = 0 To 10
+                            conv.Insert(num1, clearline(num))
+                            num1 += 1
+                            num += 1
+                        Next
+                    End If
+                End While
+                clearline = conv
+                num = 0
                 While True
                     If clearline.Count < num + 1 Then
                         Exit While
                     End If
                     If clearline(num) = -1 Then
                         num += 1
-                        acc += acc0
-                        acc0 = 0
                     Else
-                        acc0 += 1
-                        Dim li = clearline(num) - acc
+                        Dim li = clearline(num)
                         num += 1
                         For i = 0 To 229
                             If i < li * 10 Then
