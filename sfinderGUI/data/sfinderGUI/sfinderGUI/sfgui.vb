@@ -4,6 +4,7 @@
         error2.Visible = False
         error3.Visible = False
         copy.Visible = False
+        clear2.Visible = False
         Dim input As New ArrayList
         Using txt As New IO.StreamReader("..\..\..\..\input.txt", System.Text.Encoding.GetEncoding("Unicode"))
             While txt.Peek > -1
@@ -133,11 +134,34 @@
         Next
     End Sub
     Private Sub Path_SelectedIndexChanged(sender As Object, e As EventArgs) Handles Path.SelectedIndexChanged
+        Dim selected = 0
+        For i = 0 To Path.Items.Count - 1
+            If Path.GetItemChecked(i) Then
+                selected += 1
+            End If
+        Next
+        clear2.Visible = If(selected = Path.Items.Count Or selected = 0, False, True)
         Dim tfu = Path.SelectedIndex
         Dim data() As Short = Fumen(Path.Items(tfu), FumenLength(Path.Items(tfu)), False)
         preview2.SizeMode = PictureBoxSizeMode.StretchImage
         preview2.Image = Drawing(data, 10)
         copy.Visible = True
+    End Sub
+    Private Sub clear2_Click(sender As Object, e As EventArgs) Handles clear2.Click
+        Dim list = New ArrayList
+        For i = 0 To Path.Items.Count - 1
+            If Path.GetItemChecked(i) Then
+                list.Add(Path.Items(i))
+            End If
+        Next
+        Path.Items.Clear()
+        Dim c = 0
+        For Each csv In list
+            Path.Items.Add(csv)
+            Path.SetItemChecked(c, True)
+            c += 1
+        Next
+        Path.SetSelected(0, True)
     End Sub
     Private Sub Copy_Click(sender As Object, e As EventArgs) Handles copy.Click
         Clipboard.SetText(Path.SelectedItem)

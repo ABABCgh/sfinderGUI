@@ -50,6 +50,7 @@ Partial Class Sfgui
         Me.error1 = New System.Windows.Forms.Label()
         Me.error2 = New System.Windows.Forms.Label()
         Me.error3 = New System.Windows.Forms.Label()
+        Me.clear2 = New System.Windows.Forms.Button()
         CType(Me.preview1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.preview2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -295,11 +296,21 @@ Partial Class Sfgui
         Me.error3.TabIndex = 29
         Me.error3.Text = "エラー"
         '
+        'clear2
+        '
+        Me.clear2.Location = New System.Drawing.Point(267, 278)
+        Me.clear2.Name = "clear2"
+        Me.clear2.Size = New System.Drawing.Size(145, 21)
+        Me.clear2.TabIndex = 30
+        Me.clear2.Text = "チェックしていないものをクリア"
+        Me.clear2.UseVisualStyleBackColor = True
+        '
         'Sfgui
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(637, 315)
+        Me.Controls.Add(Me.clear2)
         Me.Controls.Add(Me.error3)
         Me.Controls.Add(Me.error2)
         Me.Controls.Add(Me.error1)
@@ -364,4 +375,5 @@ Partial Class Sfgui
     Friend WithEvents error1 As Label
     Friend WithEvents error2 As Label
     Friend WithEvents error3 As Label
+    Friend WithEvents clear2 As Button
 End Class

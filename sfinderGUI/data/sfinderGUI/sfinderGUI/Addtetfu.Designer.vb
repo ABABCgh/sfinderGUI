@@ -30,6 +30,8 @@ Partial Class Addtetfu
         Me.Add = New System.Windows.Forms.Button()
         Me.error1 = New System.Windows.Forms.Label()
         Me.error2 = New System.Windows.Forms.Label()
+        Me.error3 = New System.Windows.Forms.Label()
+        Me.error4 = New System.Windows.Forms.Label()
         CType(Me.preview, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -104,11 +106,33 @@ Partial Class Addtetfu
         Me.error2.TabIndex = 29
         Me.error2.Text = "エラー"
         '
+        'error3
+        '
+        Me.error3.AutoSize = True
+        Me.error3.ForeColor = System.Drawing.Color.Red
+        Me.error3.Location = New System.Drawing.Point(131, 247)
+        Me.error3.Name = "error3"
+        Me.error3.Size = New System.Drawing.Size(32, 12)
+        Me.error3.TabIndex = 30
+        Me.error3.Text = "エラー"
+        '
+        'error4
+        '
+        Me.error4.AutoSize = True
+        Me.error4.ForeColor = System.Drawing.Color.Red
+        Me.error4.Location = New System.Drawing.Point(131, 9)
+        Me.error4.Name = "error4"
+        Me.error4.Size = New System.Drawing.Size(29, 12)
+        Me.error4.TabIndex = 31
+        Me.error4.Text = "警告"
+        '
         'Addtetfu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(181, 277)
+        Me.Controls.Add(Me.error4)
+        Me.Controls.Add(Me.error3)
         Me.Controls.Add(Me.error2)
         Me.Controls.Add(Me.error1)
         Me.Controls.Add(Me.Add)
@@ -132,4 +156,6 @@ Partial Class Addtetfu
     Friend WithEvents Add As Button
     Friend WithEvents error1 As Label
     Friend WithEvents error2 As Label
+    Friend WithEvents error3 As Label
+    Friend WithEvents error4 As Label
 End Class

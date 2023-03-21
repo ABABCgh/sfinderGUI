@@ -2,6 +2,8 @@
     Private Sub FirstLoad(sender As Object, ByVal e As EventArgs) Handles MyBase.Load
         error1.Visible = False
         error2.Visible = False
+        error3.Visible = False
+        error4.Visible = False
     End Sub
     Private Sub Paste_Click(sender As Object, e As EventArgs) Handles paste.Click
         If Clipboard.ContainsText() Then
@@ -20,11 +22,13 @@
         End If
     End Sub
     Private Sub TetfuChanged(sender As Object, e As EventArgs) Handles tetfu.TextChanged
+        error4.Visible = False
         If TypeOf tetfu.Text Is String Then
             If tetfu.Text.Length > 10 Then
                 If tetfu.Text.Substring(1, 4) = "115@" Then
                     error1.Visible = False
                     error2.Visible = False
+                    error3.Visible = False
                 Else
                     error1.Visible = True
                 End If
@@ -75,6 +79,9 @@
                     Next
                 End If
             Else
+                If Not p = 0 Then
+                    error4.Visible = True
+                End If
                 Dim data(((tetfu.Length - fnum) \ poll) - 1) As Integer
                 For i = 0 To ((tetfu.Length - fnum) / poll) - 1
                     For c = 0 To poll - 1
@@ -342,6 +349,10 @@
         Drawing = fumen
     End Function
     Private Sub Addfu(sender As Object, e As EventArgs) Handles Add.Click
-        Sfgui.Path.Items.Add(tetfu.Text)
+        If error1.Visible Or tetfu.Text = "" Then
+            error3.Visible = True
+        Else
+            Sfgui.Path.Items.Add(tetfu.Text)
+        End If
     End Sub
 End Class
