@@ -147,7 +147,7 @@
         preview2.Image = Drawing(data, 10)
         copy.Visible = True
     End Sub
-    Private Sub clear2_Click(sender As Object, e As EventArgs) Handles clear2.Click
+    Private Sub Clear2_Click(sender As Object, e As EventArgs) Handles clear2.Click
         Dim list = New ArrayList
         For i = 0 To Path.Items.Count - 1
             If Path.GetItemChecked(i) Then
@@ -459,7 +459,6 @@
                     txt += Array.IndexOf(cr, tetfu.Substring(fnum + i, 1)) * (64 ^ i)
                 Next
                 fnum += ((txt + 3) \ 4) * 5 + 2
-                Dim a = tetfu.Substring(fnum, 3)
             End If
             tetfu = tetfu.Insert(fnum, blank)
         End While
