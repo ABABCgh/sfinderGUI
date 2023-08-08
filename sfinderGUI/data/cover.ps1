@@ -9,4 +9,5 @@ for($i = 0; $i -lt @($select).Length; $i++)
   $fumens += @($select)[$i] + " "
 }
 $p2 = $input[3]
-java -jar sfinder.jar cover -t $fumens -p $p2
+$mode = $input[6]
+java -jar sfinder.jar cover -t $fumens -p $p2 -M $mode

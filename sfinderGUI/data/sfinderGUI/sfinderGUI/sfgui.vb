@@ -1,8 +1,13 @@
 ﻿Public Class Sfgui
+    Public solutionmode = 0
+    Public clearlineheight = 0
+    Public pcmode = "normal"
     Private Sub FirstLoad(sender As Object, e As EventArgs) Handles MyBase.Load
         error1.Visible = False
         error2.Visible = False
         error3.Visible = False
+        error4.Visible = False
+        error5.Visible = False
         copy.Visible = False
         clear2.Visible = False
         Dim input As New ArrayList
@@ -11,10 +16,38 @@
                 input.Add(txt.ReadLine())
             End While
         End Using
-        tetfu.Text = input(0)
         page.Text = 1
         p1.Text = input(2)
         p2.Text = input(3)
+        solutionmode = input(4)
+        clearlineheight = input(5)
+        lineheight.Text = input(5)
+        pcmode = input(6)
+        tetfu.Text = input(0)
+        If solutionmode = 0 Then
+            Label7.Visible = True
+            lineheight.Visible = True
+            Dim toshort As Short
+            If IsNumeric(lineheight.Text) Then
+                Try
+                    toshort = CInt(lineheight.Text)
+                Catch ex As Exception
+                    error4.Visible = True
+                End Try
+                If toshort > 0 Then
+                    error4.Visible = False
+                    error5.Visible = False
+                Else
+                    error4.Visible = True
+                End If
+            Else
+                error4.Visible = True
+            End If
+        Else
+            Label7.Visible = False
+            lineheight.Visible = False
+            error4.Visible = False
+        End If
         Path_Load()
     End Sub
     Private Sub Paste_Click(sender As Object, e As EventArgs) Handles paste.Click
@@ -34,11 +67,11 @@
             Process.Start("https://fumen.zui.jp/?" + tetfu.Text)
         End If
     End Sub
-    Private Sub TetfuChanged(sender As Object, e As EventArgs) Handles tetfu.TextChanged, page.TextChanged
+    Private Sub TetfuChanged(sender As Object, e As EventArgs) Handles tetfu.TextChanged, page.TextChanged, lineheight.TextChanged
         Dim Input = New ArrayList
         Using txt As New IO.StreamReader("..\..\..\..\input.txt", System.Text.Encoding.GetEncoding("Unicode"))
             While txt.Peek > -1
-                input.Add(txt.ReadLine())
+                Input.Add(txt.ReadLine())
             End While
         End Using
         If TypeOf tetfu.Text Is String Then
@@ -86,13 +119,32 @@
         If page.Text = "" Then
             error3.Visible = False
         End If
+        Dim toshort As Short
+        If IsNumeric(lineheight.Text) Then
+            Try
+                toshort = CInt(lineheight.Text)
+            Catch ex As Exception
+                error4.Visible = True
+            End Try
+            If toshort > 0 Then
+                error4.Visible = False
+                error5.Visible = False
+                clearlineheight = lineheight.Text
+                Input(5) = lineheight.Text
+            Else
+                error4.Visible = True
+            End If
+        Else
+            error4.Visible = True
+        End If
         Using txt As New IO.StreamWriter("..\..\..\..\input.txt", False, System.Text.Encoding.GetEncoding("Unicode"))
-            For Each str As String In input
+            For Each str As String In Input
                 txt.WriteLine(str)
             Next
         End Using
         preview1.SizeMode = PictureBoxSizeMode.StretchImage
-        preview1.Image = Drawing(data, 10)
+        Console.WriteLine("a")
+        preview1.Image = Drawing(data, 10, solutionmode = 0)
     End Sub
     Private Sub P1_TextChanged(sender As Object, e As EventArgs) Handles p1.TextChanged
         Dim input As New ArrayList
@@ -122,6 +174,48 @@
             Next
         End Using
     End Sub
+    Public Sub SolutionDetailChanged()
+        Dim input As New ArrayList
+        Using txt As New IO.StreamReader("..\..\..\..\input.txt", System.Text.Encoding.GetEncoding("Unicode"))
+            While txt.Peek > -1
+                input.Add(txt.ReadLine())
+            End While
+        End Using
+        input(4) = solutionmode
+        input(5) = clearlineheight
+        input(6) = pcmode
+        Using txt As New IO.StreamWriter("..\..\..\..\input.txt", False, System.Text.Encoding.GetEncoding("Unicode"))
+            For Each str As String In input
+                txt.WriteLine(str)
+            Next
+        End Using
+        If solutionmode = 0 Then
+            Label7.Visible = True
+            lineheight.Visible = True
+            Dim toshort As Short
+            If IsNumeric(lineheight.Text) Then
+                Try
+                    toshort = CInt(lineheight.Text)
+                Catch ex As Exception
+                    error4.Visible = True
+                End Try
+                If toshort > 0 Then
+                    error4.Visible = False
+                    error5.Visible = False
+                Else
+                    error4.Visible = True
+                End If
+            Else
+                error4.Visible = True
+            End If
+        Else
+            Label7.Visible = False
+            lineheight.Visible = False
+            error4.Visible = False
+        End If
+        lineheight.Text = 0
+        lineheight.Text = clearlineheight
+    End Sub
     Private Sub Path_Load()
         Path.Items.Clear()
         Using txt As New IO.StreamReader("..\..\..\..\result.txt", System.Text.Encoding.GetEncoding("Unicode"))
@@ -144,7 +238,7 @@
         Dim tfu = Path.SelectedIndex
         Dim data() As Short = Fumen(Path.Items(tfu), FumenLength(Path.Items(tfu)), False)
         preview2.SizeMode = PictureBoxSizeMode.StretchImage
-        preview2.Image = Drawing(data, 10)
+        preview2.Image = Drawing(data, 10, False)
         copy.Visible = True
     End Sub
     Private Sub Clear2_Click(sender As Object, e As EventArgs) Handles clear2.Click
@@ -165,6 +259,14 @@
     End Sub
     Private Sub Copy_Click(sender As Object, e As EventArgs) Handles copy.Click
         Clipboard.SetText(Path.SelectedItem)
+    End Sub
+    Private Sub Detail1_Click(sender As Object, e As EventArgs) Handles detail1.Click
+        Dim f As New Solution1
+        f.ShowDialog(Me)
+    End Sub
+    Private Sub Detail2_Click(sender As Object, e As EventArgs) Handles detail2.Click
+        Dim f As New Solution2
+        f.ShowDialog(Me)
     End Sub
     Private Sub Addfu(sender As Object, e As EventArgs) Handles Add.Click
         Dim f As New Addtetfu
@@ -479,7 +581,7 @@
         Next
         Hight = h
     End Function
-    Private Function Drawing(ByVal tetfu() As Short, ByVal hight As Short)
+    Private Function Drawing(ByVal tetfu() As Short, ByVal hight As Short, ByVal line As Boolean)
         Const quality = 15
         Dim fumen As New Bitmap(10 * quality, hight * quality)
         For i = 0 To hight * 10 - 1
@@ -512,13 +614,28 @@
                 Next
             Next
         Next
+        If line Then
+            If hight - clearlineheight >= 0 And clearlineheight > 0 Then
+                For w = 0 To quality * 10 - 1
+                    fumen.SetPixel(w, (hight - clearlineheight) * quality, Color.FromArgb(255, 0, 0))
+                Next
+            End If
+        End If
         Dim g As Graphics = Graphics.FromImage(fumen)
         g.InterpolationMode = Drawing2D.InterpolationMode.Default
         Drawing = fumen
     End Function
 
     Private Sub Setup_Click(sender As Object, e As EventArgs) Handles Setup.Click
-        Process.Start("..\..\..\..\setup.bat")
+        If error4.Visible Then
+            error5.Visible = True
+        Else
+            If solutionmode = 0 Then
+                Process.Start("..\..\..\..\path.bat")
+            Else
+                Process.Start("..\..\..\..\setup.bat")
+            End If
+        End If
     End Sub
     Private Sub Cover_Click(sender As Object, e As EventArgs) Handles Cover.Click
         Dim list As New ArrayList
