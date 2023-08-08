@@ -35,7 +35,6 @@ Partial Class Sfgui
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.p2 = New System.Windows.Forms.TextBox()
-        Me.Cover = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.page = New System.Windows.Forms.TextBox()
         Me.clear = New System.Windows.Forms.Button()
@@ -51,6 +50,13 @@ Partial Class Sfgui
         Me.error2 = New System.Windows.Forms.Label()
         Me.error3 = New System.Windows.Forms.Label()
         Me.clear2 = New System.Windows.Forms.Button()
+        Me.Cover = New System.Windows.Forms.Button()
+        Me.detail1 = New System.Windows.Forms.Button()
+        Me.detail2 = New System.Windows.Forms.Button()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.lineheight = New System.Windows.Forms.TextBox()
+        Me.error4 = New System.Windows.Forms.Label()
+        Me.error5 = New System.Windows.Forms.Label()
         CType(Me.preview1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.preview2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -157,15 +163,6 @@ Partial Class Sfgui
         Me.p2.Name = "p2"
         Me.p2.Size = New System.Drawing.Size(57, 19)
         Me.p2.TabIndex = 12
-        '
-        'Cover
-        '
-        Me.Cover.Location = New System.Drawing.Point(414, 265)
-        Me.Cover.Name = "Cover"
-        Me.Cover.Size = New System.Drawing.Size(102, 38)
-        Me.Cover.TabIndex = 15
-        Me.Cover.Text = "実行"
-        Me.Cover.UseVisualStyleBackColor = True
         '
         'Label2
         '
@@ -305,11 +302,82 @@ Partial Class Sfgui
         Me.clear2.Text = "チェックしていないものをクリア"
         Me.clear2.UseVisualStyleBackColor = True
         '
+        'Cover
+        '
+        Me.Cover.Location = New System.Drawing.Point(414, 265)
+        Me.Cover.Name = "Cover"
+        Me.Cover.Size = New System.Drawing.Size(102, 38)
+        Me.Cover.TabIndex = 15
+        Me.Cover.Text = "実行"
+        Me.Cover.UseVisualStyleBackColor = True
+        '
+        'detail1
+        '
+        Me.detail1.Font = New System.Drawing.Font("MS UI Gothic", 7.0!)
+        Me.detail1.Location = New System.Drawing.Point(227, 243)
+        Me.detail1.Name = "detail1"
+        Me.detail1.Size = New System.Drawing.Size(30, 20)
+        Me.detail1.TabIndex = 31
+        Me.detail1.Text = "・・・"
+        Me.detail1.UseVisualStyleBackColor = True
+        '
+        'detail2
+        '
+        Me.detail2.Font = New System.Drawing.Font("MS UI Gothic", 7.0!)
+        Me.detail2.Location = New System.Drawing.Point(422, 243)
+        Me.detail2.Name = "detail2"
+        Me.detail2.Size = New System.Drawing.Size(30, 20)
+        Me.detail2.TabIndex = 32
+        Me.detail2.Text = "・・・"
+        Me.detail2.UseVisualStyleBackColor = True
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(198, 197)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(29, 12)
+        Me.Label7.TabIndex = 33
+        Me.Label7.Text = "段数"
+        '
+        'lineheight
+        '
+        Me.lineheight.Location = New System.Drawing.Point(194, 212)
+        Me.lineheight.Name = "lineheight"
+        Me.lineheight.Size = New System.Drawing.Size(35, 19)
+        Me.lineheight.TabIndex = 34
+        '
+        'error4
+        '
+        Me.error4.AutoSize = True
+        Me.error4.ForeColor = System.Drawing.Color.Red
+        Me.error4.Location = New System.Drawing.Point(231, 216)
+        Me.error4.Name = "error4"
+        Me.error4.Size = New System.Drawing.Size(32, 12)
+        Me.error4.TabIndex = 35
+        Me.error4.Text = "エラー"
+        '
+        'error5
+        '
+        Me.error5.AutoSize = True
+        Me.error5.ForeColor = System.Drawing.Color.Red
+        Me.error5.Location = New System.Drawing.Point(127, 279)
+        Me.error5.Name = "error5"
+        Me.error5.Size = New System.Drawing.Size(32, 12)
+        Me.error5.TabIndex = 36
+        Me.error5.Text = "エラー"
+        '
         'Sfgui
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(637, 315)
+        Me.Controls.Add(Me.error5)
+        Me.Controls.Add(Me.error4)
+        Me.Controls.Add(Me.lineheight)
+        Me.Controls.Add(Me.Label7)
+        Me.Controls.Add(Me.detail2)
+        Me.Controls.Add(Me.detail1)
         Me.Controls.Add(Me.clear2)
         Me.Controls.Add(Me.error3)
         Me.Controls.Add(Me.error2)
@@ -360,7 +428,6 @@ Partial Class Sfgui
     Friend WithEvents Label3 As Label
     Friend WithEvents Label5 As Label
     Friend WithEvents p2 As TextBox
-    Friend WithEvents Cover As Button
     Friend WithEvents Label2 As Label
     Friend WithEvents page As TextBox
     Friend WithEvents clear As Button
@@ -376,4 +443,11 @@ Partial Class Sfgui
     Friend WithEvents error2 As Label
     Friend WithEvents error3 As Label
     Friend WithEvents clear2 As Button
+    Friend WithEvents Cover As Button
+    Friend WithEvents detail1 As Button
+    Friend WithEvents detail2 As Button
+    Friend WithEvents Label7 As Label
+    Friend WithEvents lineheight As TextBox
+    Friend WithEvents error4 As Label
+    Friend WithEvents error5 As Label
 End Class
