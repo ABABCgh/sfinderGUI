@@ -39,7 +39,7 @@ Partial Class Solution2
         '
         Me.pcmode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.pcmode.FormattingEnabled = True
-        Me.pcmode.Items.AddRange(New Object() {"normal", "tetris", "tetris-end", "tss", "tsd", "tst"})
+        Me.pcmode.Items.AddRange(New Object() {"normal", "2l", "tetris", "tetris-end", "tss", "tsd", "tst"})
         Me.pcmode.Location = New System.Drawing.Point(12, 29)
         Me.pcmode.Name = "pcmode"
         Me.pcmode.Size = New System.Drawing.Size(109, 20)

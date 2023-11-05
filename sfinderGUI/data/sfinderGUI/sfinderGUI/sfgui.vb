@@ -16,7 +16,7 @@
                 input.Add(txt.ReadLine())
             End While
         End Using
-        page.Text = 1
+        page.Text = input(1)
         p1.Text = input(2)
         p2.Text = input(3)
         solutionmode = input(4)
@@ -52,8 +52,24 @@
     End Sub
     Private Sub Paste_Click(sender As Object, e As EventArgs) Handles paste.Click
         If Clipboard.ContainsText() Then
-            page.Text = 1
-            tetfu.Text = Clipboard.GetText()
+            If TypeOf tetfu.Text Is String Then
+                If tetfu.Text.Length > 10 Then
+                    If tetfu.Text.Substring(1, 4) = "115@" Then
+                        Dim bool As Boolean = False
+                        Dim befo As Short() = Fumen(tetfu.Text, 1, True)
+                        tetfu.Text = Clipboard.GetText()
+                        Dim afte As Short() = Fumen(tetfu.Text, 1, True)
+                        For i = 0 To befo.Length - 1
+                            If Not befo(i) = afte(i) Then
+                                bool = True
+                            End If
+                        Next
+                        If bool Then
+                            page.Text = 1
+                        End If
+                    End If
+                End If
+            End If
         End If
     End Sub
     Private Sub Tetfu_Click(sender As Object, ByVal e As EventArgs) Handles tetfu.Click
@@ -143,7 +159,6 @@
             Next
         End Using
         preview1.SizeMode = PictureBoxSizeMode.StretchImage
-        Console.WriteLine("a")
         preview1.Image = Drawing(data, 10, solutionmode = 0)
     End Sub
     Private Sub P1_TextChanged(sender As Object, e As EventArgs) Handles p1.TextChanged
