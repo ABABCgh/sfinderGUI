@@ -22,6 +22,7 @@ Partial Class Solution2
     'コード エディターを使って変更しないでください。
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Solution2))
         Me.Label1 = New System.Windows.Forms.Label()
         Me.pcmode = New System.Windows.Forms.ComboBox()
         Me.SuspendLayout()
@@ -39,7 +40,7 @@ Partial Class Solution2
         '
         Me.pcmode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.pcmode.FormattingEnabled = True
-        Me.pcmode.Items.AddRange(New Object() {"normal", "2l", "tetris", "tetris-end", "tss", "tsd", "tst"})
+        Me.pcmode.Items.AddRange(New Object() {"normal", "2l", "tetris", "tetris-end", "tss", "tsd", "tst", "btb"})
         Me.pcmode.Location = New System.Drawing.Point(12, 29)
         Me.pcmode.Name = "pcmode"
         Me.pcmode.Size = New System.Drawing.Size(109, 20)
@@ -52,8 +53,9 @@ Partial Class Solution2
         Me.ClientSize = New System.Drawing.Size(143, 163)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.pcmode)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "Solution2"
-        Me.Text = "Solution2"
+        Me.Text = "PCmode"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

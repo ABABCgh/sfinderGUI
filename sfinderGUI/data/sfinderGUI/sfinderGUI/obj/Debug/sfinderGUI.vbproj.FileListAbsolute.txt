@@ -38,3 +38,4 @@ C:\Users\Owner\OneDrive\デスクトップ\New Git\sfinderGUI\data\sfinderGUI\sf
 C:\Users\Owner\OneDrive\デスクトップ\New Git\sfinderGUI\data\sfinderGUI\sfinderGUI\obj\Debug\sfinderGUI.pdb
 C:\Users\Owner\OneDrive\デスクトップ\New Git\sfinderGUI\data\sfinderGUI\sfinderGUI\obj\Debug\sfinderGUI.Solution1.resources
 C:\Users\Owner\OneDrive\デスクトップ\New Git\sfinderGUI\data\sfinderGUI\sfinderGUI\obj\Debug\sfinderGUI.Solution2.resources
+C:\Users\Owner\OneDrive\デスクトップ\New Git\sfinderGUI\data\sfinderGUI\sfinderGUI\obj\Debug\sfinderGUI.理論パフェ率計算.resources

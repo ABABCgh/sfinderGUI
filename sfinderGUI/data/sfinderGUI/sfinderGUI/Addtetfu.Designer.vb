@@ -22,6 +22,7 @@ Partial Class Addtetfu
     'コード エディターを使って変更しないでください。
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Addtetfu))
         Me.preview = New System.Windows.Forms.PictureBox()
         Me.open = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -32,6 +33,7 @@ Partial Class Addtetfu
         Me.error2 = New System.Windows.Forms.Label()
         Me.error3 = New System.Windows.Forms.Label()
         Me.error4 = New System.Windows.Forms.Label()
+        Me.autoadd = New System.Windows.Forms.CheckBox()
         CType(Me.preview, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -126,11 +128,24 @@ Partial Class Addtetfu
         Me.error4.TabIndex = 31
         Me.error4.Text = "警告"
         '
+        'autoadd
+        '
+        Me.autoadd.AutoSize = True
+        Me.autoadd.Checked = True
+        Me.autoadd.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.autoadd.Location = New System.Drawing.Point(57, 267)
+        Me.autoadd.Name = "autoadd"
+        Me.autoadd.Size = New System.Drawing.Size(72, 16)
+        Me.autoadd.TabIndex = 32
+        Me.autoadd.Text = "自動追加"
+        Me.autoadd.UseVisualStyleBackColor = True
+        '
         'Addtetfu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(181, 277)
+        Me.ClientSize = New System.Drawing.Size(181, 285)
+        Me.Controls.Add(Me.autoadd)
         Me.Controls.Add(Me.error4)
         Me.Controls.Add(Me.error3)
         Me.Controls.Add(Me.error2)
@@ -141,6 +156,7 @@ Partial Class Addtetfu
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.tetfu)
         Me.Controls.Add(Me.paste)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "Addtetfu"
         Me.Text = "Addtetfu"
         CType(Me.preview, System.ComponentModel.ISupportInitialize).EndInit()
@@ -158,4 +174,5 @@ Partial Class Addtetfu
     Friend WithEvents error2 As Label
     Friend WithEvents error3 As Label
     Friend WithEvents error4 As Label
+    Friend WithEvents autoadd As CheckBox
 End Class
