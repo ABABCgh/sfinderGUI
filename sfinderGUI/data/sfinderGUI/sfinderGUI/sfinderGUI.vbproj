@@ -116,6 +116,12 @@
     <Compile Include="Solution2.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="理論パフェ率計算.Designer.vb">
+      <DependentUpon>理論パフェ率計算.vb</DependentUpon>
+    </Compile>
+    <Compile Include="理論パフェ率計算.vb">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Addtetfu.resx">
@@ -135,6 +141,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Solution2.resx">
       <DependentUpon>Solution2.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="理論パフェ率計算.resx">
+      <DependentUpon>理論パフェ率計算.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

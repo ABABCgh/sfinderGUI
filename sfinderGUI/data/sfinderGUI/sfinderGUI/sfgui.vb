@@ -2,21 +2,24 @@
     Public solutionmode = 0
     Public clearlineheight = 0
     Public pcmode = "normal"
+    Public loadToAdd = False
     Private Sub FirstLoad(sender As Object, e As EventArgs) Handles MyBase.Load
         error1.Visible = False
         error2.Visible = False
         error3.Visible = False
         error4.Visible = False
         error5.Visible = False
+        error6.Visible = False
         copy.Visible = False
         clear2.Visible = False
+        RPC.Visible = False
         Dim input As New ArrayList
         Using txt As New IO.StreamReader("..\..\..\..\input.txt", System.Text.Encoding.GetEncoding("Unicode"))
             While txt.Peek > -1
                 input.Add(txt.ReadLine())
             End While
         End Using
-        page.Text = 1
+        page.Text = input(1)
         p1.Text = input(2)
         p2.Text = input(3)
         solutionmode = input(4)
@@ -34,7 +37,7 @@
                 Catch ex As Exception
                     error4.Visible = True
                 End Try
-                If toshort > 0 Then
+                If toshort > 0 And toshort < 11 Then
                     error4.Visible = False
                     error5.Visible = False
                 Else
@@ -48,12 +51,30 @@
             lineheight.Visible = False
             error4.Visible = False
         End If
+        NotNormalMode()
+        addload.Text = ""
         Path_Load()
     End Sub
     Private Sub Paste_Click(sender As Object, e As EventArgs) Handles paste.Click
         If Clipboard.ContainsText() Then
-            page.Text = 1
-            tetfu.Text = Clipboard.GetText()
+            If TypeOf tetfu.Text Is String Then
+                If tetfu.Text.Length > 10 Then
+                    If tetfu.Text.Substring(1, 4) = "115@" Then
+                        Dim bool As Boolean = False
+                        Dim befo As Short() = Fumen(tetfu.Text, 1, True)
+                        tetfu.Text = Clipboard.GetText()
+                        Dim afte As Short() = Fumen(tetfu.Text, 1, True)
+                        For i = 0 To befo.Length - 1
+                            If Not befo(i) = afte(i) Then
+                                bool = True
+                            End If
+                        Next
+                        If bool Then
+                            page.Text = 1
+                        End If
+                    End If
+                End If
+            End If
         End If
     End Sub
     Private Sub Tetfu_Click(sender As Object, ByVal e As EventArgs) Handles tetfu.Click
@@ -143,9 +164,15 @@
             Next
         End Using
         preview1.SizeMode = PictureBoxSizeMode.StretchImage
-        Console.WriteLine("a")
         preview1.Image = Drawing(data, 10, solutionmode = 0)
     End Sub
+    Public Function Image(ByVal tfu As String)
+        If tfu = "" Then
+            Return New Bitmap(30, 30)
+        Else
+            Return Drawing(Fumen(tfu, FumenLength(tfu), False), 10, solutionmode = 0)
+        End If
+    End Function
     Private Sub P1_TextChanged(sender As Object, e As EventArgs) Handles p1.TextChanged
         Dim input As New ArrayList
         Using txt As New IO.StreamReader("..\..\..\..\input.txt", System.Text.Encoding.GetEncoding("Unicode"))
@@ -217,7 +244,9 @@
         lineheight.Text = clearlineheight
     End Sub
     Private Sub Path_Load()
-        Path.Items.Clear()
+        If Not loadToAdd Then
+            Path.Items.Clear()
+        End If
         Using txt As New IO.StreamReader("..\..\..\..\result.txt", System.Text.Encoding.GetEncoding("Unicode"))
             While txt.Peek > -1
                 Path.Items.Add(txt.ReadLine())
@@ -268,21 +297,32 @@
         Dim f As New Solution2
         f.ShowDialog(Me)
     End Sub
+    Public Sub NotNormalMode()
+        If pcmode = "normal" Then
+            detail2.BackColor = SystemColors.ControlLight
+        Else
+            detail2.BackColor = SystemColors.ActiveBorder
+        End If
+    End Sub
     Private Sub Addfu(sender As Object, e As EventArgs) Handles Add.Click
         Dim f As New Addtetfu
         f.ShowDialog(Me)
+    End Sub
+    Private Sub AddLoad_Click(sender As Object, e As EventArgs) Handles addload.Click
+        If loadToAdd Then
+            loadToAdd = False
+            addload.Text = ""
+        Else
+            loadToAdd = True
+            addload.Text = "-"
+            RPC.Visible = True
+        End If
     End Sub
     Private Sub Load_Click(sender As Object, e As EventArgs) Handles loadtxt.Click
         Path_Load()
     End Sub
     Private Sub Clear_Click(sender As Object, e As EventArgs) Handles clear.Click
-        Dim list As New ArrayList
-        Using txt As New IO.StreamWriter("..\..\..\..\result.txt", False, System.Text.Encoding.GetEncoding("Unicode"))
-            For Each tetfu As String In list
-                txt.WriteLine(tetfu)
-            Next
-        End Using
-        Path_Load()
+        Path.Items.Clear()
     End Sub
     Private Sub Loadsuccess_Click(sender As Object, e As EventArgs) Handles loadsuccess.Click
         Dim readme = New ArrayList
@@ -297,7 +337,12 @@
                 output.Add(txt.ReadLine())
             End While
         End Using
-        success.Text = output(output.Count - 2).SubString(6, output(output.Count - 2).IndexOf("%") - 5)
+        If output(output.Count - 2).IndexOf("%") = -1 Then
+            error6.Visible = True
+        Else
+            error6.Visible = False
+            success.Text = output(output.Count - 2).SubString(6, output(output.Count - 2).IndexOf("%") - 5)
+        End If
     End Sub
     Private Sub Lastoutput_Click(sender As Object, e As EventArgs) Handles lastoutput.Click
         Dim readme As New ArrayList
@@ -308,6 +353,14 @@
         End Using
         Dim output As New ArrayList
         Process.Start(readme(0) + "\output\last_output.txt")
+    End Sub
+    Private Sub RPC_MouseEnter(sender As Object, ByVal e As System.EventArgs) Handles RPC.MouseEnter
+        RPC.FlatStyle = FlatStyle.Standard
+        RPC.ForeColor = SystemColors.ControlText
+    End Sub
+    Private Sub RPC_Click(sender As Object, e As EventArgs) Handles RPC.Click
+        Dim f As New 理論パフェ率計算
+        f.Show()
     End Sub
     Private Function Fumen(ByVal tetfu As String, ByVal page As Integer, ByVal clear As Boolean)
         Dim cr() As String = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "+", "/"}

@@ -29,6 +29,9 @@
                     error1.Visible = False
                     error2.Visible = False
                     error3.Visible = False
+                    If autoadd.Checked Then
+                        Addfu(Add, EventArgs.Empty)
+                    End If
                 Else
                     error1.Visible = True
                 End If
@@ -353,6 +356,7 @@
             error3.Visible = True
         Else
             Sfgui.Path.Items.Add(tetfu.Text)
+            Sfgui.Path.SetItemChecked(Sfgui.Path.Items.Count - 1, True)
         End If
     End Sub
 End Class

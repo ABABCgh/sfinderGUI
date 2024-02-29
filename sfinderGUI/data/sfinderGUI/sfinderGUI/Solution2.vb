@@ -4,6 +4,7 @@
     End Sub
     Private Sub PCmode_SelectedIndexChanged(sender As Object, e As EventArgs) Handles pcmode.SelectedIndexChanged
         Sfgui.pcmode = pcmode.SelectedItem
+        Sfgui.NotNormalMode()
         Sfgui.SolutionDetailChanged()
     End Sub
 End Class
