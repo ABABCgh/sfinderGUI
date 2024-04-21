@@ -25,6 +25,8 @@ Partial Class Solution2
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Solution2))
         Me.Label1 = New System.Windows.Forms.Label()
         Me.pcmode = New System.Windows.Forms.ComboBox()
+        Me.dropmode = New System.Windows.Forms.ComboBox()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'Label1
@@ -46,11 +48,32 @@ Partial Class Solution2
         Me.pcmode.Size = New System.Drawing.Size(109, 20)
         Me.pcmode.TabIndex = 2
         '
+        'dropmode
+        '
+        Me.dropmode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.dropmode.FormattingEnabled = True
+        Me.dropmode.Items.AddRange(New Object() {"normal", "harddrop", "t-softdrop"})
+        Me.dropmode.Location = New System.Drawing.Point(12, 84)
+        Me.dropmode.Name = "dropmode"
+        Me.dropmode.Size = New System.Drawing.Size(109, 20)
+        Me.dropmode.TabIndex = 3
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(30, 64)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(53, 12)
+        Me.Label2.TabIndex = 4
+        Me.Label2.Text = "設置方法"
+        '
         'Solution2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(143, 163)
+        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.dropmode)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.pcmode)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
@@ -62,4 +85,6 @@ Partial Class Solution2
     End Sub
     Friend WithEvents Label1 As Label
     Friend WithEvents pcmode As ComboBox
+    Friend WithEvents dropmode As ComboBox
+    Friend WithEvents Label2 As Label
 End Class

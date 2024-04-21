@@ -24,17 +24,6 @@ Partial Class 理論パフェ率計算
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(理論パフェ率計算))
         Me.Data = New System.Windows.Forms.DataGridView()
-        Me.tetfu = New System.Windows.Forms.DataGridViewImageColumn()
-        Me.tetfubutton = New System.Windows.Forms.DataGridViewButtonColumn()
-        Me.PC = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.PCbutton = New System.Windows.Forms.DataGridViewButtonColumn()
-        Me.DPC = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DPCbutton = New System.Windows.Forms.DataGridViewButtonColumn()
-        Me.setup = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.setupbutton = New System.Windows.Forms.DataGridViewButtonColumn()
-        Me.usepc = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.result = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.fumen = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ListBox1 = New System.Windows.Forms.ListBox()
         Me.deletefu = New System.Windows.Forms.Button()
         Me.pcsolution = New System.Windows.Forms.Label()
@@ -50,6 +39,21 @@ Partial Class 理論パフェ率計算
         Me.error1 = New System.Windows.Forms.Label()
         Me.error2 = New System.Windows.Forms.Label()
         Me.Button4 = New System.Windows.Forms.Button()
+        Me.tetfu = New System.Windows.Forms.DataGridViewImageColumn()
+        Me.tetfubutton = New System.Windows.Forms.DataGridViewButtonColumn()
+        Me.PC = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.PCbutton = New System.Windows.Forms.DataGridViewButtonColumn()
+        Me.DPC = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DPCbutton = New System.Windows.Forms.DataGridViewButtonColumn()
+        Me.setup = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.setupbutton = New System.Windows.Forms.DataGridViewButtonColumn()
+        Me.usepc = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.result = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.fumen = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.PCsort = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DPCsort = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.setupsort = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.terraincount = New System.Windows.Forms.Label()
         CType(Me.Data, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.frontmostbar, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -57,88 +61,12 @@ Partial Class 理論パフェ率計算
         'Data
         '
         Me.Data.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.Data.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.tetfu, Me.tetfubutton, Me.PC, Me.PCbutton, Me.DPC, Me.DPCbutton, Me.setup, Me.setupbutton, Me.usepc, Me.result, Me.fumen})
+        Me.Data.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.tetfu, Me.tetfubutton, Me.PC, Me.PCbutton, Me.DPC, Me.DPCbutton, Me.setup, Me.setupbutton, Me.usepc, Me.result, Me.fumen, Me.PCsort, Me.DPCsort, Me.setupsort})
         Me.Data.Location = New System.Drawing.Point(110, 9)
         Me.Data.Name = "Data"
         Me.Data.RowTemplate.Height = 21
-        Me.Data.Size = New System.Drawing.Size(379, 439)
+        Me.Data.Size = New System.Drawing.Size(395, 407)
         Me.Data.TabIndex = 0
-        '
-        'tetfu
-        '
-        Me.tetfu.HeaderText = "地形"
-        Me.tetfu.Name = "tetfu"
-        Me.tetfu.ReadOnly = True
-        Me.tetfu.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.tetfu.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        Me.tetfu.Width = 30
-        '
-        'tetfubutton
-        '
-        Me.tetfubutton.HeaderText = ""
-        Me.tetfubutton.Name = "tetfubutton"
-        Me.tetfubutton.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.tetfubutton.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        Me.tetfubutton.Width = 10
-        '
-        'PC
-        '
-        Me.PC.HeaderText = "PC"
-        Me.PC.Name = "PC"
-        Me.PC.Width = 60
-        '
-        'PCbutton
-        '
-        Me.PCbutton.HeaderText = ""
-        Me.PCbutton.Name = "PCbutton"
-        Me.PCbutton.ReadOnly = True
-        Me.PCbutton.Width = 10
-        '
-        'DPC
-        '
-        Me.DPC.HeaderText = "DPC"
-        Me.DPC.Name = "DPC"
-        Me.DPC.Width = 60
-        '
-        'DPCbutton
-        '
-        Me.DPCbutton.HeaderText = ""
-        Me.DPCbutton.Name = "DPCbutton"
-        Me.DPCbutton.ReadOnly = True
-        Me.DPCbutton.Width = 10
-        '
-        'setup
-        '
-        Me.setup.HeaderText = "setup"
-        Me.setup.Name = "setup"
-        Me.setup.Width = 60
-        '
-        'setupbutton
-        '
-        Me.setupbutton.HeaderText = ""
-        Me.setupbutton.Name = "setupbutton"
-        Me.setupbutton.ReadOnly = True
-        Me.setupbutton.Width = 10
-        '
-        'usepc
-        '
-        Me.usepc.HeaderText = ""
-        Me.usepc.Name = "usepc"
-        Me.usepc.Width = 25
-        '
-        'result
-        '
-        Me.result.HeaderText = ""
-        Me.result.Name = "result"
-        Me.result.ReadOnly = True
-        Me.result.Width = 60
-        '
-        'fumen
-        '
-        Me.fumen.HeaderText = "テト譜"
-        Me.fumen.Name = "fumen"
-        Me.fumen.ReadOnly = True
-        Me.fumen.Visible = False
         '
         'ListBox1
         '
@@ -278,11 +206,118 @@ Partial Class 理論パフェ率計算
         Me.Button4.Text = "直接見る"
         Me.Button4.UseVisualStyleBackColor = True
         '
+        'tetfu
+        '
+        Me.tetfu.Frozen = True
+        Me.tetfu.HeaderText = "地形"
+        Me.tetfu.Name = "tetfu"
+        Me.tetfu.ReadOnly = True
+        Me.tetfu.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.tetfu.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        Me.tetfu.Width = 30
+        '
+        'tetfubutton
+        '
+        Me.tetfubutton.Frozen = True
+        Me.tetfubutton.HeaderText = ""
+        Me.tetfubutton.Name = "tetfubutton"
+        Me.tetfubutton.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.tetfubutton.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        Me.tetfubutton.Width = 10
+        '
+        'PC
+        '
+        Me.PC.HeaderText = "PC"
+        Me.PC.Name = "PC"
+        Me.PC.Width = 60
+        '
+        'PCbutton
+        '
+        Me.PCbutton.HeaderText = ""
+        Me.PCbutton.Name = "PCbutton"
+        Me.PCbutton.ReadOnly = True
+        Me.PCbutton.Width = 10
+        '
+        'DPC
+        '
+        Me.DPC.HeaderText = "DPC"
+        Me.DPC.Name = "DPC"
+        Me.DPC.Width = 60
+        '
+        'DPCbutton
+        '
+        Me.DPCbutton.HeaderText = ""
+        Me.DPCbutton.Name = "DPCbutton"
+        Me.DPCbutton.ReadOnly = True
+        Me.DPCbutton.Width = 10
+        '
+        'setup
+        '
+        Me.setup.HeaderText = "setup"
+        Me.setup.Name = "setup"
+        Me.setup.Width = 60
+        '
+        'setupbutton
+        '
+        Me.setupbutton.HeaderText = ""
+        Me.setupbutton.Name = "setupbutton"
+        Me.setupbutton.ReadOnly = True
+        Me.setupbutton.Width = 10
+        '
+        'usepc
+        '
+        Me.usepc.HeaderText = ""
+        Me.usepc.Name = "usepc"
+        Me.usepc.Width = 25
+        '
+        'result
+        '
+        Me.result.HeaderText = ""
+        Me.result.Name = "result"
+        Me.result.ReadOnly = True
+        Me.result.Width = 60
+        '
+        'fumen
+        '
+        Me.fumen.HeaderText = "テト譜"
+        Me.fumen.Name = "fumen"
+        Me.fumen.ReadOnly = True
+        Me.fumen.Visible = False
+        '
+        'PCsort
+        '
+        Me.PCsort.HeaderText = "pc"
+        Me.PCsort.Name = "PCsort"
+        Me.PCsort.Visible = False
+        '
+        'DPCsort
+        '
+        Me.DPCsort.HeaderText = "dpc"
+        Me.DPCsort.Name = "DPCsort"
+        Me.DPCsort.Visible = False
+        '
+        'setupsort
+        '
+        Me.setupsort.HeaderText = "setup"
+        Me.setupsort.Name = "setupsort"
+        Me.setupsort.Visible = False
+        '
+        'terraincount
+        '
+        Me.terraincount.AutoSize = True
+        Me.terraincount.Font = New System.Drawing.Font("MS UI Gothic", 11.0!)
+        Me.terraincount.Location = New System.Drawing.Point(18, 394)
+        Me.terraincount.Name = "terraincount"
+        Me.terraincount.Size = New System.Drawing.Size(73, 15)
+        Me.terraincount.TabIndex = 21
+        Me.terraincount.Text = "地形数 : 8"
+        '
         '理論パフェ率計算
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(498, 457)
+        Me.ClientSize = New System.Drawing.Size(514, 425)
+        Me.Controls.Add(Me.terraincount)
         Me.Controls.Add(Me.Button4)
         Me.Controls.Add(Me.error2)
         Me.Controls.Add(Me.error1)
@@ -322,6 +357,9 @@ Partial Class 理論パフェ率計算
     Friend WithEvents frontmostbar As TrackBar
     Friend WithEvents frontmost As Label
     Friend WithEvents frontmostON As Label
+    Friend WithEvents error1 As Label
+    Friend WithEvents error2 As Label
+    Friend WithEvents Button4 As Button
     Friend WithEvents tetfu As DataGridViewImageColumn
     Friend WithEvents tetfubutton As DataGridViewButtonColumn
     Friend WithEvents PC As DataGridViewTextBoxColumn
@@ -333,7 +371,8 @@ Partial Class 理論パフェ率計算
     Friend WithEvents usepc As DataGridViewCheckBoxColumn
     Friend WithEvents result As DataGridViewTextBoxColumn
     Friend WithEvents fumen As DataGridViewTextBoxColumn
-    Friend WithEvents error1 As Label
-    Friend WithEvents error2 As Label
-    Friend WithEvents Button4 As Button
+    Friend WithEvents PCsort As DataGridViewTextBoxColumn
+    Friend WithEvents DPCsort As DataGridViewTextBoxColumn
+    Friend WithEvents setupsort As DataGridViewTextBoxColumn
+    Friend WithEvents terraincount As Label
 End Class

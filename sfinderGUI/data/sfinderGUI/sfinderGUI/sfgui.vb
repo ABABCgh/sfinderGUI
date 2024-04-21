@@ -2,7 +2,9 @@
     Public solutionmode = 0
     Public clearlineheight = 0
     Public pcmode = "normal"
+    Public dropmode = "softdrop"
     Public loadToAdd = False
+    Public usemargin = False
     Private Sub FirstLoad(sender As Object, e As EventArgs) Handles MyBase.Load
         error1.Visible = False
         error2.Visible = False
@@ -26,6 +28,7 @@
         clearlineheight = input(5)
         lineheight.Text = input(5)
         pcmode = input(6)
+        dropmode = input(8)
         tetfu.Text = input(0)
         If solutionmode = 0 Then
             Label7.Visible = True
@@ -170,7 +173,7 @@
         If tfu = "" Then
             Return New Bitmap(30, 30)
         Else
-            Return Drawing(Fumen(tfu, FumenLength(tfu), False), 10, solutionmode = 0)
+            Return Drawing(Fumen(tfu, FumenLength(tfu), False), 10, False)
         End If
     End Function
     Private Sub P1_TextChanged(sender As Object, e As EventArgs) Handles p1.TextChanged
@@ -211,6 +214,7 @@
         input(4) = solutionmode
         input(5) = clearlineheight
         input(6) = pcmode
+        input(8) = dropmode
         Using txt As New IO.StreamWriter("..\..\..\..\input.txt", False, System.Text.Encoding.GetEncoding("Unicode"))
             For Each str As String In input
                 txt.WriteLine(str)
@@ -244,7 +248,10 @@
         lineheight.Text = clearlineheight
     End Sub
     Private Sub Path_Load()
-        If Not loadToAdd Then
+        Dim beforeRange = 0
+        If loadToAdd Then
+            beforeRange = Path.Items.Count
+        Else
             Path.Items.Clear()
         End If
         Using txt As New IO.StreamReader("..\..\..\..\result.txt", System.Text.Encoding.GetEncoding("Unicode"))
@@ -252,7 +259,7 @@
                 Path.Items.Add(txt.ReadLine())
             End While
         End Using
-        For i = 0 To Path.Items.Count - 1
+        For i = beforeRange To Path.Items.Count - 1
             Path.SetItemChecked(i, True)
         Next
     End Sub
@@ -265,10 +272,12 @@
         Next
         clear2.Visible = If(selected = Path.Items.Count Or selected = 0, False, True)
         Dim tfu = Path.SelectedIndex
-        Dim data() As Short = Fumen(Path.Items(tfu), FumenLength(Path.Items(tfu)), False)
-        preview2.SizeMode = PictureBoxSizeMode.StretchImage
-        preview2.Image = Drawing(data, 10, False)
-        copy.Visible = True
+        If Not tfu = -1 Then
+            Dim data() As Short = Fumen(Path.Items(tfu), FumenLength(Path.Items(tfu)), False)
+            preview2.SizeMode = PictureBoxSizeMode.StretchImage
+            preview2.Image = Drawing(data, 10, False)
+            copy.Visible = True
+        End If
     End Sub
     Private Sub Clear2_Click(sender As Object, e As EventArgs) Handles clear2.Click
         Dim list = New ArrayList
@@ -299,7 +308,11 @@
     End Sub
     Public Sub NotNormalMode()
         If pcmode = "normal" Then
-            detail2.BackColor = SystemColors.ControlLight
+            If dropmode = "normal" Or Not usemargin Then
+                detail2.BackColor = SystemColors.ControlLight
+            Else
+                detail2.BackColor = SystemColors.ActiveBorder
+            End If
         Else
             detail2.BackColor = SystemColors.ActiveBorder
         End If
@@ -316,6 +329,7 @@
             loadToAdd = True
             addload.Text = "-"
             RPC.Visible = True
+            usemargin = True
         End If
     End Sub
     Private Sub Load_Click(sender As Object, e As EventArgs) Handles loadtxt.Click
@@ -686,11 +700,25 @@
             If solutionmode = 0 Then
                 Process.Start("..\..\..\..\path.bat")
             Else
-                Process.Start("..\..\..\..\setup.bat")
+                Dim input As New ArrayList
+                Using txt As New IO.StreamReader("..\..\..\..\input.txt", System.Text.Encoding.GetEncoding("Unicode"))
+                    While txt.Peek > -1
+                        input.Add(txt.ReadLine())
+                    End While
+                End Using
+                If input(7) = "True" Then
+                    Process.Start("..\..\..\..\setupm.bat")
+                Else
+                    Process.Start("..\..\..\..\setup.bat")
+                End If
             End If
         End If
     End Sub
     Private Sub Cover_Click(sender As Object, e As EventArgs) Handles Cover.Click
+        If (Not usemargin) And Not dropmode = "normal" Then
+            dropmode = "normal"
+            SolutionDetailChanged()
+        End If
         Dim list As New ArrayList
         For Each i In Path.Items
             list.Add(i)

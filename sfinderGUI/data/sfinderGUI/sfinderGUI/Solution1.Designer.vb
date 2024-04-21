@@ -29,6 +29,7 @@ Partial Class Solution1
         Me.unique = New System.Windows.Forms.Button()
         Me.minimal = New System.Windows.Forms.Button()
         Me.open = New System.Windows.Forms.Label()
+        Me.marginO = New System.Windows.Forms.CheckBox()
         CType(Me.mode, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -92,11 +93,22 @@ Partial Class Solution1
         Me.open.TabIndex = 6
         Me.open.Text = "open"
         '
+        'marginO
+        '
+        Me.marginO.AutoSize = True
+        Me.marginO.Location = New System.Drawing.Point(110, 56)
+        Me.marginO.Name = "marginO"
+        Me.marginO.Size = New System.Drawing.Size(76, 16)
+        Me.marginO.TabIndex = 7
+        Me.marginO.Text = "-margin O"
+        Me.marginO.UseVisualStyleBackColor = True
+        '
         'Solution1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(208, 89)
+        Me.Controls.Add(Me.marginO)
         Me.Controls.Add(Me.open)
         Me.Controls.Add(Me.unique)
         Me.Controls.Add(Me.minimal)
@@ -117,4 +129,5 @@ Partial Class Solution1
     Friend WithEvents unique As Button
     Friend WithEvents minimal As Button
     Friend WithEvents open As Label
+    Friend WithEvents marginO As CheckBox
 End Class
