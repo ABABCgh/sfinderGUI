@@ -1,0 +1,41 @@
+C:\Users\Owner\source\repos\sfinderGUI\sfinderGUI\bin\Debug\sfinderGUI.exe.config
+C:\Users\Owner\source\repos\sfinderGUI\sfinderGUI\bin\Debug\sfinderGUI.exe
+C:\Users\Owner\source\repos\sfinderGUI\sfinderGUI\bin\Debug\sfinderGUI.pdb
+C:\Users\Owner\source\repos\sfinderGUI\sfinderGUI\bin\Debug\sfinderGUI.xml
+C:\Users\Owner\source\repos\sfinderGUI\sfinderGUI\obj\Debug\sfinderGUI.vbprojAssemblyReference.cache
+C:\Users\Owner\source\repos\sfinderGUI\sfinderGUI\obj\Debug\sfinderGUI.Resources.resources
+C:\Users\Owner\source\repos\sfinderGUI\sfinderGUI\obj\Debug\sfinderGUI.vbproj.GenerateResource.cache
+C:\Users\Owner\source\repos\sfinderGUI\sfinderGUI\obj\Debug\sfinderGUI.vbproj.CoreCompileInputs.cache
+C:\Users\Owner\source\repos\sfinderGUI\sfinderGUI\obj\Debug\sfinderGUI.exe
+C:\Users\Owner\source\repos\sfinderGUI\sfinderGUI\obj\Debug\sfinderGUI.xml
+C:\Users\Owner\source\repos\sfinderGUI\sfinderGUI\obj\Debug\sfinderGUI.pdb
+C:\Users\Owner\source\repos\sfinderGUI\sfinderGUI\obj\Debug\sfinderGUI.Form1.resources
+C:\Users\Owner\OneDrive\デスクトップ\sfinderGUI\data\sfinderGUI\sfinderGUI\bin\Debug\sfinderGUI.exe.config
+C:\Users\Owner\OneDrive\デスクトップ\sfinderGUI\data\sfinderGUI\sfinderGUI\bin\Debug\sfinderGUI.exe
+C:\Users\Owner\OneDrive\デスクトップ\sfinderGUI\data\sfinderGUI\sfinderGUI\bin\Debug\sfinderGUI.pdb
+C:\Users\Owner\OneDrive\デスクトップ\sfinderGUI\data\sfinderGUI\sfinderGUI\bin\Debug\sfinderGUI.xml
+C:\Users\Owner\OneDrive\デスクトップ\sfinderGUI\data\sfinderGUI\sfinderGUI\obj\Debug\sfinderGUI.vbprojAssemblyReference.cache
+C:\Users\Owner\OneDrive\デスクトップ\sfinderGUI\data\sfinderGUI\sfinderGUI\obj\Debug\sfinderGUI.Resources.resources
+C:\Users\Owner\OneDrive\デスクトップ\sfinderGUI\data\sfinderGUI\sfinderGUI\obj\Debug\sfinderGUI.vbproj.GenerateResource.cache
+C:\Users\Owner\OneDrive\デスクトップ\sfinderGUI\data\sfinderGUI\sfinderGUI\obj\Debug\sfinderGUI.vbproj.CoreCompileInputs.cache
+C:\Users\Owner\OneDrive\デスクトップ\sfinderGUI\data\sfinderGUI\sfinderGUI\obj\Debug\sfinderGUI.exe
+C:\Users\Owner\OneDrive\デスクトップ\sfinderGUI\data\sfinderGUI\sfinderGUI\obj\Debug\sfinderGUI.xml
+C:\Users\Owner\OneDrive\デスクトップ\sfinderGUI\data\sfinderGUI\sfinderGUI\obj\Debug\sfinderGUI.pdb
+C:\Users\Owner\OneDrive\デスクトップ\sfinderGUI\data\sfinderGUI\sfinderGUI\obj\Debug\sfinderGUI.sfgui.resources
+C:\Users\Owner\OneDrive\デスクトップ\sfinderGUI\data\sfinderGUI\sfinderGUI\obj\Debug\sfinderGUI.Addtetfu.resources
+C:\Users\Owner\OneDrive\デスクトップ\New Git\sfinderGUI\data\sfinderGUI\sfinderGUI\bin\Debug\sfinderGUI.exe.config
+C:\Users\Owner\OneDrive\デスクトップ\New Git\sfinderGUI\data\sfinderGUI\sfinderGUI\bin\Debug\sfinderGUI.exe
+C:\Users\Owner\OneDrive\デスクトップ\New Git\sfinderGUI\data\sfinderGUI\sfinderGUI\bin\Debug\sfinderGUI.pdb
+C:\Users\Owner\OneDrive\デスクトップ\New Git\sfinderGUI\data\sfinderGUI\sfinderGUI\bin\Debug\sfinderGUI.xml
+C:\Users\Owner\OneDrive\デスクトップ\New Git\sfinderGUI\data\sfinderGUI\sfinderGUI\obj\Debug\sfinderGUI.vbprojAssemblyReference.cache
+C:\Users\Owner\OneDrive\デスクトップ\New Git\sfinderGUI\data\sfinderGUI\sfinderGUI\obj\Debug\sfinderGUI.Addtetfu.resources
+C:\Users\Owner\OneDrive\デスクトップ\New Git\sfinderGUI\data\sfinderGUI\sfinderGUI\obj\Debug\sfinderGUI.Sfgui.resources
+C:\Users\Owner\OneDrive\デスクトップ\New Git\sfinderGUI\data\sfinderGUI\sfinderGUI\obj\Debug\sfinderGUI.Resources.resources
+C:\Users\Owner\OneDrive\デスクトップ\New Git\sfinderGUI\data\sfinderGUI\sfinderGUI\obj\Debug\sfinderGUI.vbproj.GenerateResource.cache
+C:\Users\Owner\OneDrive\デスクトップ\New Git\sfinderGUI\data\sfinderGUI\sfinderGUI\obj\Debug\sfinderGUI.vbproj.CoreCompileInputs.cache
+C:\Users\Owner\OneDrive\デスクトップ\New Git\sfinderGUI\data\sfinderGUI\sfinderGUI\obj\Debug\sfinderGUI.exe
+C:\Users\Owner\OneDrive\デスクトップ\New Git\sfinderGUI\data\sfinderGUI\sfinderGUI\obj\Debug\sfinderGUI.xml
+C:\Users\Owner\OneDrive\デスクトップ\New Git\sfinderGUI\data\sfinderGUI\sfinderGUI\obj\Debug\sfinderGUI.pdb
+C:\Users\Owner\OneDrive\デスクトップ\New Git\sfinderGUI\data\sfinderGUI\sfinderGUI\obj\Debug\sfinderGUI.Solution1.resources
+C:\Users\Owner\OneDrive\デスクトップ\New Git\sfinderGUI\data\sfinderGUI\sfinderGUI\obj\Debug\sfinderGUI.Solution2.resources
+C:\Users\Owner\OneDrive\デスクトップ\New Git\sfinderGUI\data\sfinderGUI\sfinderGUI\obj\Debug\sfinderGUI.理論パフェ率計算.resources
