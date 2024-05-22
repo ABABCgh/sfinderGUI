@@ -22,6 +22,7 @@ Partial Class Sfgui
     'コード エディターを使って変更しないでください。
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Sfgui))
         Me.paste = New System.Windows.Forms.Button()
         Me.tetfu = New System.Windows.Forms.TextBox()
@@ -60,8 +61,18 @@ Partial Class Sfgui
         Me.addload = New System.Windows.Forms.Button()
         Me.RPC = New System.Windows.Forms.Button()
         Me.error6 = New System.Windows.Forms.Label()
+        Me.BindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.Imino = New System.Windows.Forms.Button()
+        Me.Omino = New System.Windows.Forms.Button()
+        Me.Smino = New System.Windows.Forms.Button()
+        Me.Zmino = New System.Windows.Forms.Button()
+        Me.Jmino = New System.Windows.Forms.Button()
+        Me.Lmino = New System.Windows.Forms.Button()
+        Me.Tmino = New System.Windows.Forms.Button()
+        Me.Nmino = New System.Windows.Forms.Button()
         CType(Me.preview1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.preview2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'paste
@@ -407,11 +418,91 @@ Partial Class Sfgui
         Me.error6.TabIndex = 25
         Me.error6.Text = "エラー"
         '
+        'Imino
+        '
+        Me.Imino.Location = New System.Drawing.Point(465, 216)
+        Me.Imino.Name = "Imino"
+        Me.Imino.Size = New System.Drawing.Size(0, 0)
+        Me.Imino.TabIndex = 26
+        Me.Imino.Text = "&I"
+        Me.Imino.UseVisualStyleBackColor = True
+        '
+        'Omino
+        '
+        Me.Omino.Location = New System.Drawing.Point(465, 216)
+        Me.Omino.Name = "Omino"
+        Me.Omino.Size = New System.Drawing.Size(0, 0)
+        Me.Omino.TabIndex = 27
+        Me.Omino.Text = "&O"
+        Me.Omino.UseVisualStyleBackColor = True
+        '
+        'Smino
+        '
+        Me.Smino.Location = New System.Drawing.Point(465, 215)
+        Me.Smino.Name = "Smino"
+        Me.Smino.Size = New System.Drawing.Size(0, 0)
+        Me.Smino.TabIndex = 28
+        Me.Smino.Text = "&S"
+        Me.Smino.UseVisualStyleBackColor = True
+        '
+        'Zmino
+        '
+        Me.Zmino.Location = New System.Drawing.Point(465, 215)
+        Me.Zmino.Name = "Zmino"
+        Me.Zmino.Size = New System.Drawing.Size(0, 0)
+        Me.Zmino.TabIndex = 29
+        Me.Zmino.Text = "&Z"
+        Me.Zmino.UseVisualStyleBackColor = True
+        '
+        'Jmino
+        '
+        Me.Jmino.Location = New System.Drawing.Point(465, 216)
+        Me.Jmino.Name = "Jmino"
+        Me.Jmino.Size = New System.Drawing.Size(0, 0)
+        Me.Jmino.TabIndex = 30
+        Me.Jmino.Text = "&J"
+        Me.Jmino.UseVisualStyleBackColor = True
+        '
+        'Lmino
+        '
+        Me.Lmino.Location = New System.Drawing.Point(465, 216)
+        Me.Lmino.Name = "Lmino"
+        Me.Lmino.Size = New System.Drawing.Size(0, 0)
+        Me.Lmino.TabIndex = 31
+        Me.Lmino.Text = "&L"
+        Me.Lmino.UseVisualStyleBackColor = True
+        '
+        'Tmino
+        '
+        Me.Tmino.Location = New System.Drawing.Point(465, 216)
+        Me.Tmino.Name = "Tmino"
+        Me.Tmino.Size = New System.Drawing.Size(0, 0)
+        Me.Tmino.TabIndex = 32
+        Me.Tmino.Text = "&T"
+        Me.Tmino.UseVisualStyleBackColor = True
+        '
+        'Nmino
+        '
+        Me.Nmino.Location = New System.Drawing.Point(465, 216)
+        Me.Nmino.Name = "Nmino"
+        Me.Nmino.Size = New System.Drawing.Size(0, 0)
+        Me.Nmino.TabIndex = 33
+        Me.Nmino.Text = "&N"
+        Me.Nmino.UseVisualStyleBackColor = True
+        '
         'Sfgui
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(637, 315)
+        Me.Controls.Add(Me.Nmino)
+        Me.Controls.Add(Me.Tmino)
+        Me.Controls.Add(Me.Lmino)
+        Me.Controls.Add(Me.Jmino)
+        Me.Controls.Add(Me.Zmino)
+        Me.Controls.Add(Me.Smino)
+        Me.Controls.Add(Me.Omino)
+        Me.Controls.Add(Me.Imino)
         Me.Controls.Add(Me.error6)
         Me.Controls.Add(Me.RPC)
         Me.Controls.Add(Me.error5)
@@ -454,6 +545,7 @@ Partial Class Sfgui
         Me.Text = "solution finder"
         CType(Me.preview1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.preview2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -496,4 +588,13 @@ Partial Class Sfgui
     Friend WithEvents addload As Button
     Friend WithEvents RPC As Button
     Friend WithEvents error6 As Label
+    Friend WithEvents BindingSource1 As BindingSource
+    Friend WithEvents Imino As Button
+    Friend WithEvents Omino As Button
+    Friend WithEvents Smino As Button
+    Friend WithEvents Zmino As Button
+    Friend WithEvents Jmino As Button
+    Friend WithEvents Lmino As Button
+    Friend WithEvents Tmino As Button
+    Friend WithEvents Nmino As Button
 End Class

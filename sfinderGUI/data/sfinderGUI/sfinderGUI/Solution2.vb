@@ -6,8 +6,8 @@
         Else
             dropmode.SelectedIndex = dropmode.Items.IndexOf(Sfgui.dropmode)
         End If
-        dropmode.Visible = Sfgui.usemargin
-        Label2.Visible = Sfgui.usemargin
+        dropmode.Visible = Sfgui.usemargin2
+        Label2.Visible = Sfgui.usemargin2
     End Sub
     Private Sub PCmode_SelectedIndexChanged(sender As Object, e As EventArgs) Handles pcmode.SelectedIndexChanged
         Sfgui.pcmode = pcmode.SelectedItem

@@ -5,6 +5,7 @@
     Public dropmode = "softdrop"
     Public loadToAdd = False
     Public usemargin = False
+    Public usemargin2 = False
     Private Sub FirstLoad(sender As Object, e As EventArgs) Handles MyBase.Load
         error1.Visible = False
         error2.Visible = False
@@ -204,6 +205,21 @@
             Next
         End Using
     End Sub
+    Private Sub P1_KeyDown(sender As Object, e As KeyEventArgs) Handles p1.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            Setup.Focus()
+        End If
+    End Sub
+    Private Sub P2_KeyDown(sender As Object, e As KeyEventArgs) Handles p2.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            Cover.Focus()
+        End If
+    End Sub
+    Private Sub Lineheight_KeyDown(sender As Object, e As KeyEventArgs) Handles lineheight.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            p1.Focus()
+        End If
+    End Sub
     Public Sub SolutionDetailChanged()
         Dim input As New ArrayList
         Using txt As New IO.StreamReader("..\..\..\..\input.txt", System.Text.Encoding.GetEncoding("Unicode"))
@@ -308,7 +324,7 @@
     End Sub
     Public Sub NotNormalMode()
         If pcmode = "normal" Then
-            If dropmode = "normal" Or Not usemargin Then
+            If dropmode = "softdrop" Or Not usemargin2 Then
                 detail2.BackColor = SystemColors.ControlLight
             Else
                 detail2.BackColor = SystemColors.ActiveBorder
@@ -371,6 +387,7 @@
     Private Sub RPC_MouseEnter(sender As Object, ByVal e As System.EventArgs) Handles RPC.MouseEnter
         RPC.FlatStyle = FlatStyle.Standard
         RPC.ForeColor = SystemColors.ControlText
+        usemargin2 = True
     End Sub
     Private Sub RPC_Click(sender As Object, e As EventArgs) Handles RPC.Click
         Dim f As New 理論パフェ率計算
@@ -715,8 +732,8 @@
         End If
     End Sub
     Private Sub Cover_Click(sender As Object, e As EventArgs) Handles Cover.Click
-        If (Not usemargin) And Not dropmode = "normal" Then
-            dropmode = "normal"
+        If (Not usemargin2) And Not dropmode = "softdrop" Then
+            dropmode = "softdrop"
             SolutionDetailChanged()
         End If
         Dim list As New ArrayList
@@ -731,5 +748,38 @@
             Next
         End Using
         Process.Start("..\..\..\..\cover.bat")
+    End Sub
+
+    Private Sub IKey(sender As Object, e As EventArgs) Handles Imino.Click
+        p1.Text = "I*p7"
+        p2.Text = "I*p7"
+    End Sub
+    Private Sub OKey(sender As Object, e As EventArgs) Handles Omino.Click
+        p1.Text = "O*p7"
+        p2.Text = "O*p7"
+    End Sub
+    Private Sub SKey(sender As Object, e As EventArgs) Handles Smino.Click
+        p1.Text = "S*p7"
+        p2.Text = "S*p7"
+    End Sub
+    Private Sub ZKey(sender As Object, e As EventArgs) Handles Zmino.Click
+        p1.Text = "Z*p7"
+        p2.Text = "Z*p7"
+    End Sub
+    Private Sub JKey(sender As Object, e As EventArgs) Handles Jmino.Click
+        p1.Text = "J*p7"
+        p2.Text = "J*p7"
+    End Sub
+    Private Sub LKey(sender As Object, e As EventArgs) Handles Lmino.Click
+        p1.Text = "L*p7"
+        p2.Text = "L*p7"
+    End Sub
+    Private Sub TKey(sender As Object, e As EventArgs) Handles Tmino.Click
+        p1.Text = "T*p7"
+        p2.Text = "T*p7"
+    End Sub
+    Private Sub NKey(sender As Object, e As EventArgs) Handles Nmino.Click
+        p1.Text = "*p7"
+        p2.Text = "*p7"
     End Sub
 End Class
